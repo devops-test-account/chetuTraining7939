@@ -22,12 +22,12 @@ jobs:
 
       - name: Copy files to EC2
         run: |
-          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -r ./* ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_INSTANCE_IP }}:/home/ubuntu/chetutraining9273/
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -r ./* ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_INSTANCE_IP }}:/home/ubuntu/chetutraining7939/
 
       - name: SSH into EC2 and start Docker services
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_INSTANCE_IP }} << 'EOF'
-            cd /home/ubuntu/chetutraining9273/
+            cd /home/ubuntu/chetutraining7939/
             docker-compose down
             docker-compose up -d --build
           EOF
